@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/trunk/jars/jswarm-pso_2_08.jar!/" />
+      <root url="jar://$PROJECT_DIR$/trunk/jars/cloudsim-3.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
