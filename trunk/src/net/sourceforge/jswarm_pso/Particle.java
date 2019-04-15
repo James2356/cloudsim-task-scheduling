@@ -1,7 +1,12 @@
 package net.sourceforge.jswarm_pso;
 
+import utils.Calculator;
+import utils.ChaosStrategy;
+import utils.Constants;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Random;
 
 /**
  * Basic (abstract) particle
@@ -19,7 +24,8 @@ public abstract class Particle {
 	double position[];
 	/** Velocity */
 	double velocity[];
-
+	/** 粒子活跃判断计数*/
+	int count;
 	//-------------------------------------------------------------------------
 	// Constructors
 	//-------------------------------------------------------------------------
@@ -37,6 +43,7 @@ public abstract class Particle {
 	 */
 	public Particle(int dimention) {
 		allocate(dimention);
+		count=0;
 	}
 
 	/**
@@ -46,6 +53,7 @@ public abstract class Particle {
 	public Particle(Particle sampleParticle) {
 		int dimention = sampleParticle.getDimention();
 		allocate(dimention);
+		count=0;
 	}
 
 	//-------------------------------------------------------------------------
@@ -242,8 +250,31 @@ public abstract class Particle {
 	 */
 	public void setFitness(double fitness, boolean maximize) {
 		this.fitness = fitness;
-		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
-				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
+//		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
+//				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
+//				|| Double.isNaN(bestFitness) ) {
+//			copyPosition2Best();
+//			bestFitness = fitness;
+//		}
+		double temp = fitness-bestFitness;
+		if(Math.abs(temp)<0.005)
+		{
+			count++;
+			if(count>=5)//粒子连续5次判断都不活跃 进入变异环节
+			{
+				count=0;
+				//启动变异策略
+				double[] new_vel = new double[Constants.NO_OF_TASKS];
+				double[] new_pos = new double[Constants.NO_OF_TASKS];
+				for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
+					//混沌映射方式生成变异粒子的速度和位置
+					new_pos[i] = ChaosStrategy.getInstance().PLM(1)*Constants.NO_OF_VMS;
+					new_vel[i] = ChaosStrategy.getInstance().LM(1);
+				}
+			}
+		}
+
+		if((!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
 				|| Double.isNaN(bestFitness) ) {
 			copyPosition2Best();
 			bestFitness = fitness;

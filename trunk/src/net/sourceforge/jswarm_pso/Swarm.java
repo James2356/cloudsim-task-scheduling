@@ -110,8 +110,14 @@ public class Swarm {
 			numberOfEvaliations++; // Update counter
 
 			// Update 'best global' position
-			if( (fitnessFunction.isMaximize() && (fit > bestFitness)) // Maximize?
-					|| (!fitnessFunction.isMaximize() && (fit < bestFitness)) ) { // Minimize 
+//			if( (fitnessFunction.isMaximize() && (fit > bestFitness)) // Maximize?
+//					|| (!fitnessFunction.isMaximize() && (fit < bestFitness)) ) { // Minimize
+//				bestFitness = fit; // Copy best fitness, index, and position vector
+//				bestParticleIndex = i;
+//				if( bestPosition == null ) bestPosition = new double[sampleParticle.getDimention()];
+//				particles[bestParticleIndex].copyPosition(bestPosition);
+//			}
+			if(!fitnessFunction.isMaximize() && (fit < bestFitness) ) { // Minimize
 				bestFitness = fit; // Copy best fitness, index, and position vector
 				bestParticleIndex = i;
 				if( bestPosition == null ) bestPosition = new double[sampleParticle.getDimention()];

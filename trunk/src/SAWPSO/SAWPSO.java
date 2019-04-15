@@ -48,7 +48,7 @@ public class SAWPSO {
             swarm.setInertia(w);
             swarm.evolve();
             if (i % 10 == 0) {
-                System.out.printf("Gloabl best at iteration (%d): %f\n", i, swarm.getBestFitness());
+                System.out.printf("Gloabl best at iteration (%d): %f\n", i+1, swarm.getBestFitness());
             }
         }
         System.out.println("\nThe best fitness value: " + swarm.getBestFitness() + "\nBest makespan: " + ff.calcMakespan(swarm.getBestParticle().getBestPosition()));
