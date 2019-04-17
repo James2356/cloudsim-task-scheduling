@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Random;
+
 public class ChaosStrategy
 {
     //使用静态内部类实现 本人使用的目前最优单例模式线程安全实现
@@ -13,10 +15,12 @@ public class ChaosStrategy
      * */
     private ChaosStrategy()
     {
-
+        chaosvalue = 0.0;
+        u=3.9999;//完全混沌状态
     }
 
-    private double a;
+    private double u;
+
     private static class ChaosStrategyInner
     {
         private static ChaosStrategy instance= new ChaosStrategy();
@@ -32,15 +36,47 @@ public class ChaosStrategy
         return ChaosStrategyInner.instance;
     }
 
-    public double LM(int n)
+    private double chaosvalue;
+    public double getChaosValue()
     {
-        double result = 0.0;
+        return chaosvalue;
+    }
+
+    public void setChaosValue(double value)
+    {
+        this.chaosvalue = value;
+    }
+
+    //计算拜托初始值影响，迭代500次，得到混沌状态值，基于Logistic映射产生
+    public void CalChaos()
+    {
+        Random rd = new Random();
+        double chaosvalue = LM(500,rd.nextDouble());
+        setChaosValue(chaosvalue);
+    }
+
+    public double LM(int n,double x0)
+    {
+        double result = x0;//迭代的初始值
+        for(int i=0;i<n;i++)//迭代n次
+        {
+            result = Calculator.mul(Calculator.mul(Calculator.sub(1.0, result), result), u);
+        }
+        setChaosValue(result);
         return result;
     }
 
-    public double PLM(int n)
+    public double PLM(int n,double x0)
     {
-        double result = 0.0;
+        double result = x0;//迭代的初始值
+        for(int i=0;i<n;i++)//迭代n次
+        {
+            if(result>=0.0&&result<=0.5)
+                result = Calculator.mul(Calculator.mul(Calculator.sub(0.5, result), result), u);
+            if(result>=0.5&&result<=1.0)
+                result = 1.0-Calculator.mul(Calculator.mul(Calculator.sub(1.0, result), Calculator.sub(result,0.5)), u);
+        }
+        setChaosValue(result);
         return result;
     }
 }

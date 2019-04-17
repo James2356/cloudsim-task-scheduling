@@ -250,30 +250,33 @@ public abstract class Particle {
 	 */
 	public void setFitness(double fitness, boolean maximize) {
 		this.fitness = fitness;
+		double temp = fitness-bestFitness;
+		if(Math.abs(temp)<0.005)
+		{
+			count++;
+			if(count>=10)//粒子连续10次判断都不活跃 进入变异环节
+			{
+				count=0;
+				//启动变异策略
+				System.out.println("go particle mutation!");
+				ChaosStrategy instance = ChaosStrategy.getInstance();
+				instance.CalChaos();
+
+				double[] new_vel = new double[Constants.NO_OF_TASKS];
+				double[] new_pos = new double[Constants.NO_OF_TASKS];
+				for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
+					//混沌映射方式生成变异粒子的速度和位置
+					new_pos[i] = instance.PLM(1,instance.getChaosValue())*Constants.NO_OF_VMS;
+					new_vel[i] = instance.LM(1,instance.getChaosValue());
+				}
+			}
+		}
 //		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
 //				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
 //				|| Double.isNaN(bestFitness) ) {
 //			copyPosition2Best();
 //			bestFitness = fitness;
 //		}
-		double temp = fitness-bestFitness;
-		if(Math.abs(temp)<0.005)
-		{
-			count++;
-			if(count>=5)//粒子连续5次判断都不活跃 进入变异环节
-			{
-				count=0;
-				//启动变异策略
-				double[] new_vel = new double[Constants.NO_OF_TASKS];
-				double[] new_pos = new double[Constants.NO_OF_TASKS];
-				for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
-					//混沌映射方式生成变异粒子的速度和位置
-					new_pos[i] = ChaosStrategy.getInstance().PLM(1)*Constants.NO_OF_VMS;
-					new_vel[i] = ChaosStrategy.getInstance().LM(1);
-				}
-			}
-		}
-
 		if((!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
 				|| Double.isNaN(bestFitness) ) {
 			copyPosition2Best();
