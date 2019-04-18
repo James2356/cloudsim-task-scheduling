@@ -26,8 +26,8 @@ public class SAWPSO {
         swarm.setParticleUpdate(new SchedulerParticleUpdate(new SchedulerParticle()));
 
         for (int i = 0; i < Constants.NO_OF_Iterations; i++) {
-            double w = swarm.getInertia();
-            double iter = i+1;
+            double w = swarm.getInertia();//获取惯性权值
+            double iter = i+1;//当前迭代次数
             double ret = Calculator.div(iter,Constants.NO_OF_Iterations);
             if(iter>=1&iter<=Constants.NO_OF_Iterations/2)
             {
@@ -45,8 +45,8 @@ public class SAWPSO {
             {
                 w = w_min;
             }
-            swarm.setInertia(w);
-            swarm.evolve();
+            swarm.setInertia(w);//设置惯性权值
+            swarm.evolve();//算法正式的计算流程
             if (i % 10 == 0) {
                 System.out.printf("Gloabl best at iteration (%d): %f\n", i+1, swarm.getBestFitness());
             }

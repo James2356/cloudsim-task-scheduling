@@ -1,4 +1,5 @@
-package PSO;
+package SAWPSO;
+
 
 import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.CloudSim;
@@ -13,13 +14,13 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.*;
 
-public class PSO_Scheduler {
+public class SAWPSO_SchedulerTestOne {
 
     private static List<Cloudlet> cloudletList = new LinkedList<>();
     private static List<Vm> vmList;
-//    private static Datacenter[] datacenter;
+    //    private static Datacenter[] datacenter;
     private static Datacenter datacenter;
-    private static PSO PSOSchedularInstance;
+    private static SAWPSO SAWPSOSchedularInstance;
     private static double mapping[];
     private static double[][] commMatrix;
     private static double[][] execMatrix;
@@ -113,11 +114,11 @@ public class PSO_Scheduler {
     public static void main(String[] args) {
         Log.printLine("Starting PSO Scheduler...");
 
-        new GenerateMatrices();
-        commMatrix = GenerateMatrices.getCommMatrix();
-        execMatrix = GenerateMatrices.getExecMatrix();
-        PSOSchedularInstance = new PSO();
-        mapping = PSOSchedularInstance.run();
+//        new GenerateMatrices();
+//        commMatrix = GenerateMatrices.getCommMatrix();
+//        execMatrix = GenerateMatrices.getExecMatrix();
+//        SAWPSOSchedularInstance = new SAWPSO();
+//        mapping = SAWPSOSchedularInstance.run();
 
         try {
             String filePath = "D:\\github\\cloudsim-package\\modules\\cloudsim-examples\\src\\main\\java\\org\\cloudbus\\cloudsim\\examples\\cloudlets.txt";
@@ -135,13 +136,21 @@ public class PSO_Scheduler {
             datacenter = DatacenterCreator.createDatacenter("DataCenter_"+1,Constants.NO_OF_VMS);
 
             //Third step: Create Broker
-            PSODatacenterBroker broker = createBroker("Broker_0");
+            SAWPSODatacenterBroker broker = createBroker("Broker_0");
             int brokerId = broker.getId();
 
             //Fourth step: Create VMs and Cloudlets and send them to broker
             vmList = createVM(brokerId, Constants.NO_OF_VMS);
 //            cloudletList = createCloudlet(brokerId, Constants.NO_OF_TASKS, 0);
-            createTasks(brokerId,filePath,Constants.NO_OF_TASKS);
+//            createTasks(brokerId,filePath,Constants.NO_OF_TASKS);
+
+            GenerateMatrices GM = new GenerateMatrices(vmList);
+            commMatrix = GM.getcommMatrix();
+            execMatrix = GM.getexecMatrix();
+            SAWPSOSchedularInstance = new SAWPSO();
+            mapping = SAWPSOSchedularInstance.run();
+            cloudletList = createCloudlet(brokerId, Constants.NO_OF_TASKS, 0);
+
             // mapping our dcIds to cloudsim dcIds
             HashSet<Integer> dcIds = new HashSet<>();
             HashMap<Integer, Integer> hm = new HashMap<>();
@@ -171,15 +180,15 @@ public class PSO_Scheduler {
 
 //            printCloudletList(newList);
             PrintResults(newList);
-            Log.printLine(PSO_Scheduler.class.getName() + " finished!");
+            Log.printLine(SAWPSO_Scheduler.class.getName() + " finished!");
         } catch (Exception e) {
             e.printStackTrace();
             Log.printLine("The simulation has been terminated due to an unexpected error");
         }
     }
 
-    private static PSODatacenterBroker createBroker(String name) throws Exception {
-        return new PSODatacenterBroker(name);
+    private static SAWPSODatacenterBroker createBroker(String name) throws Exception {
+        return new SAWPSODatacenterBroker(name);
     }
 
     /**
@@ -219,7 +228,7 @@ public class PSO_Scheduler {
             mxFinishTime = Math.max(mxFinishTime, cloudlet.getFinishTime());
         }
         Log.printLine(mxFinishTime);
-        PSOSchedularInstance.printBestFitness();
+        SAWPSOSchedularInstance.printBestFitness();
     }
 
     private static double PrintResults(List<Cloudlet> list)
