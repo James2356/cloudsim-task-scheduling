@@ -102,7 +102,8 @@ public class SAWPSO_Scheduler {
 
         for (int i = 0; i < cloudlets; i++) {
             int dcId = (int) (mapping[i]);
-            long length = (long) (1e3 * (commMatrix[i][dcId] + execMatrix[i][dcId]));
+//            long length = (long) (1e3 * (commMatrix[i][dcId] + execMatrix[i][dcId]));
+            long length = (long) (1e3*execMatrix[i][dcId]);
             cloudlet[i] = new Cloudlet(idShift + i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel);
             cloudlet[i].setUserId(userId);
             list.add(cloudlet[i]);

@@ -1,5 +1,8 @@
 package net.sourceforge.jswarm_pso;
 
+import SAWPSO.SAWPSO_Scheduler;
+import SAWPSO.SAWPSO_SchedulerTestOne;
+
 /**
  * Base Fitness Function
  * @author Pablo Cingolani <pcingola@users.sourceforge.net>
@@ -40,13 +43,24 @@ public abstract class FitnessFunction {
 	public abstract double evaluate(double position[]);
 
 	/**
-	 * Evaluates a particles 
+	 * Evaluates a particles fitness
 	 * @param particle : Particle to evaluate
 	 * @return Fitness function for a particle
 	 */
 	public double evaluate(Particle particle) {
 		double position[] = particle.getPosition();
 		double fit = evaluate(position);
+//		particle.setFitness(fit,maximize);
+		if(SAWPSO_Scheduler.class.getName()=="SAWPSO.SAWPSO_Scheduler")
+		{
+			particle.InitMutation(fit);
+			fit = evaluate(particle.getPosition());
+		}
+		if(SAWPSO_SchedulerTestOne.class.getName()=="SAWPSO.SAWPSO_SchedulerTestOne")
+		{
+			particle.InitMutation(fit);
+			fit = evaluate(particle.getPosition());
+		}
 		particle.setFitness(fit,maximize);
 		return fit;
 	}

@@ -24,7 +24,6 @@ public class SAWPSO {
         swarm.setMaxMinVelocity(0.5);
         swarm.setParticles(particles);
         swarm.setParticleUpdate(new SchedulerParticleUpdate(new SchedulerParticle()));
-
         for (int i = 0; i < Constants.NO_OF_Iterations; i++) {
             double w = swarm.getInertia();//获取惯性权值
             double iter = i+1;//当前迭代次数

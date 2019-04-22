@@ -242,6 +242,7 @@ public abstract class Particle {
 		this.bestPosition = bestPosition;
 	}
 
+
 	/**
 	 * Set fitness and best fitness accordingly.
 	 * If it's the best fitness so far, copy data to bestFitness[]
@@ -250,6 +251,27 @@ public abstract class Particle {
 	 */
 	public void setFitness(double fitness, boolean maximize) {
 		this.fitness = fitness;
+
+//		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
+//				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
+//				|| Double.isNaN(bestFitness) ) {
+//			copyPosition2Best();
+//			bestFitness = fitness;
+//		}
+		if((!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
+				|| Double.isNaN(bestFitness) ) {
+			copyPosition2Best();
+			bestFitness = fitness;
+		}
+	}
+
+	/**
+	 * 启动混沌的变异策略
+	 * @param fitness
+	 */
+	public void InitMutation(double fitness)
+	{
+		//变异策略部分。
 		double temp = fitness-bestFitness;
 		if(Math.abs(temp)<0.005)
 		{
@@ -269,18 +291,9 @@ public abstract class Particle {
 					new_pos[i] = instance.PLM(1,instance.getChaosValue())*Constants.NO_OF_VMS;
 					new_vel[i] = instance.LM(1,instance.getChaosValue());
 				}
+				setPosition(new_pos);
+				setVelocity(new_vel);
 			}
-		}
-//		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
-//				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
-//				|| Double.isNaN(bestFitness) ) {
-//			copyPosition2Best();
-//			bestFitness = fitness;
-//		}
-		if((!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
-				|| Double.isNaN(bestFitness) ) {
-			copyPosition2Best();
-			bestFitness = fitness;
 		}
 	}
 

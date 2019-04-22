@@ -48,47 +48,6 @@ public class SAWPSO_SchedulerTestOne {
         return list;
     }
 
-    protected static void createTasks(int brokerId,String filePath, int taskNum)
-    {
-        try
-        {
-            @SuppressWarnings("resource")
-            BufferedReader br= new BufferedReader(new InputStreamReader(new FileInputStream(filePath)));
-            String data = null;
-            int index = 0;
-
-            //cloudlet properties.
-            int pesNumber = 1;
-            long fileSize = 1000;
-            long outputSize = 1000;
-            UtilizationModel utilizationModel = new UtilizationModelFull();
-
-            while ((data = br.readLine()) != null)
-            {
-                System.out.println(data);
-                String[] taskLength=data.split("\t");//tasklength[i]是任务执行的耗费（指令数量）
-                for(int j=0;j<20;j++){
-                    Cloudlet task=new Cloudlet(index+j, (long) Double.parseDouble(taskLength[j]), pesNumber, fileSize,
-                            outputSize, utilizationModel, utilizationModel,
-                            utilizationModel);
-                    task.setUserId(brokerId);
-                    cloudletList.add(task);
-                    if(cloudletList.size()==taskNum)
-                    {
-                        br.close();
-                        return;
-                    }
-                }
-                //20 cloudlets each line in the file cloudlets.txt.
-                index+=20;
-            }
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
     private static List<Cloudlet> createCloudlet(int userId, int cloudlets, int idShift) {
         LinkedList<Cloudlet> list = new LinkedList<Cloudlet>();
 
@@ -102,7 +61,8 @@ public class SAWPSO_SchedulerTestOne {
 
         for (int i = 0; i < cloudlets; i++) {
             int dcId = (int) (mapping[i]);
-            long length = (long) (1e3 * (commMatrix[i][dcId] + execMatrix[i][dcId]));
+//            long length = (long) (1e3 * (commMatrix[i][dcId] + execMatrix[i][dcId]));
+            long length = (long)(execMatrix[i][dcId]*1e3);
             cloudlet[i] = new Cloudlet(idShift + i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel);
             cloudlet[i].setUserId(userId);
             list.add(cloudlet[i]);
@@ -121,7 +81,6 @@ public class SAWPSO_SchedulerTestOne {
 //        mapping = SAWPSOSchedularInstance.run();
 
         try {
-            String filePath = "D:\\github\\cloudsim-package\\modules\\cloudsim-examples\\src\\main\\java\\org\\cloudbus\\cloudsim\\examples\\cloudlets.txt";
             int num_user = 1;   // number of grid users
             Calendar calendar = Calendar.getInstance();
             boolean trace_flag = false;  // mean trace events

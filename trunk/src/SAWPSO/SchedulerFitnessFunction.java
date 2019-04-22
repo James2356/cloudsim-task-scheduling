@@ -19,8 +19,10 @@ public class SchedulerFitnessFunction extends FitnessFunction {
         double alpha = 0.3;
         return alpha * calcTotalTime(position) + (1 - alpha) * calcMakespan(position);
 //        return calcMakespan(position);
+//        return calcTotalTime(position);
     }
-    //执行完成成本
+
+    //任务完成时间
     private double calcTotalTime(double[] position) {
         double totalCost = 0;
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
@@ -29,7 +31,7 @@ public class SchedulerFitnessFunction extends FitnessFunction {
         }
         return totalCost;
     }
-    //最小完成时间
+    //最大完成时间
     public double calcMakespan(double[] position) {
         double makespan = 0;
         double[] dcWorkingTime = new double[Constants.NO_OF_VMS];
@@ -43,15 +45,15 @@ public class SchedulerFitnessFunction extends FitnessFunction {
         return makespan;
     }
 
-    public  double calcLoadCost(double[] position)
+    public  double calcEC(double[] position)
     {
-        double utilization = 0.0;
+        double Consumption = 0.0;
         for(int i =0;i<Constants.NO_OF_TASKS;i++)
         {
             int dcId = (int) position[i];
-            double time = execMatrix[i][dcId];
+            Consumption = execMatrix[i][dcId];
 
         }
-        return utilization;
+        return Consumption;
     }
 }

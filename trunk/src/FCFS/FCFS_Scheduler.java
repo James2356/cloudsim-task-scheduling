@@ -11,12 +11,13 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class FCFS_Scheduler {
 
     private static List<Cloudlet> cloudletList;
     private static List<Vm> vmList;
-    private static Datacenter[] datacenter;
+    private static Datacenter datacenter;
     private static double[][] commMatrix;
     private static double[][] execMatrix;
 
@@ -27,7 +28,7 @@ public class FCFS_Scheduler {
         //VM Parameters
         long size = 10000; //image size (MB)
         int ram = 512; //vm memory (MB)
-        int mips = 250;
+        int mips = 1000;
         long bw = 1000;
         int pesNumber = 1; //number of cpus
         String vmm = "Xen"; //VMM name
@@ -56,12 +57,15 @@ public class FCFS_Scheduler {
         Cloudlet[] cloudlet = new Cloudlet[cloudlets];
 
         for (int i = 0; i < cloudlets; i++) {
-            int dcId = (int) (Math.random() * Constants.NO_OF_DATA_CENTERS);
+//            int dcId = (int) (Math.random() * Constants.NO_OF_VMS);
+            Random rd = new Random();
+            int dcId = rd.nextInt(Constants.NO_OF_VMS);
             long length = (long) (1e3 * (commMatrix[i][dcId] + execMatrix[i][dcId]));
             cloudlet[i] = new Cloudlet(idShift + i, length, pesNumber, fileSize, outputSize, utilizationModel, utilizationModel, utilizationModel);
             // setting the owner of these Cloudlets
             cloudlet[i].setUserId(userId);
-            cloudlet[i].setVmId(dcId + 2);
+//            cloudlet[i].setVmId(dcId + 2);
+            cloudlet[i].setVmId(dcId);
             list.add(cloudlet[i]);
         }
         return list;
@@ -82,11 +86,12 @@ public class FCFS_Scheduler {
             CloudSim.init(num_user, calendar, trace_flag);
 
             // Second step: Create Datacenters
-            datacenter = new Datacenter[Constants.NO_OF_DATA_CENTERS];
-            for (int i = 0; i < Constants.NO_OF_DATA_CENTERS; i++) {
-                datacenter[i] = DatacenterCreator.createDatacenter("Datacenter_" + i);
-            }
+//            datacenter = new Datacenter[Constants.NO_OF_DATA_CENTERS];
+//            for (int i = 0; i < Constants.NO_OF_DATA_CENTERS; i++) {
+//                datacenter[i] = DatacenterCreator.createDatacenter("Datacenter_" + i);
+//            }
 
+            datacenter = DatacenterCreator.createDatacenter("Datacenter_", Constants.NO_OF_VMS);
             //Third step: Create Broker
             FCFSDatacenterBroker broker = createBroker("Broker_0");
             int brokerId = broker.getId();
@@ -161,10 +166,10 @@ public class FCFS_Scheduler {
 
     private static double calcMakespan(List<Cloudlet> list) {
         double makespan = 0;
-        double[] dcWorkingTime = new double[Constants.NO_OF_DATA_CENTERS];
+        double[] dcWorkingTime = new double[Constants.NO_OF_VMS];
 
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
-            int dcId = list.get(i).getVmId() % Constants.NO_OF_DATA_CENTERS;
+            int dcId = list.get(i).getVmId() % Constants.NO_OF_VMS;
             if (dcWorkingTime[dcId] != 0) --dcWorkingTime[dcId];
             dcWorkingTime[dcId] += execMatrix[i][dcId] + commMatrix[i][dcId];
             makespan = Math.max(makespan, dcWorkingTime[dcId]);

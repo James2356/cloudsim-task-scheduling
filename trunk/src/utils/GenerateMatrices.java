@@ -141,7 +141,7 @@ public class GenerateMatrices {
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
             for (int j = 0; j < Constants.NO_OF_VMS; j++) {
                 commMatrix[i][j] = Calculator.div(VmList.getById(vmlist,j).getSize(),VmList.getById(vmlist, j).getBw());
-                execMatrix[i][j] = Calculator.div(LengthGroup[i],VmList.getById(vmlist, j).getMips());
+                execMatrix[i][j] = Calculator.div(LengthGroup[i*Constants.NO_OF_VMS+j],VmList.getById(vmlist, j).getMips());
 //                execMatrix[i][j] = Calculator.div(LengthGroup[i],VmList.getById(vmlist, j).getHost().getTotalAllocatedMipsForVm(VmList.getById(vmlist, j)));
                 commBufferedWriter.write(String.valueOf(commMatrix[i][j]) + ' ');
                 execBufferedWriter.write(String.valueOf(execMatrix[i][j]) + ' ');
