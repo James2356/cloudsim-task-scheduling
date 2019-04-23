@@ -252,13 +252,8 @@ public abstract class Particle {
 	public void setFitness(double fitness, boolean maximize) {
 		this.fitness = fitness;
 
-//		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
-//				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
-//				|| Double.isNaN(bestFitness) ) {
-//			copyPosition2Best();
-//			bestFitness = fitness;
-//		}
-		if((!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
+		if( (maximize && (fitness > bestFitness)) // Maximize and bigger? => store data
+				|| (!maximize && (fitness < bestFitness)) // Minimize and smaller? => store data too
 				|| Double.isNaN(bestFitness) ) {
 			copyPosition2Best();
 			bestFitness = fitness;
