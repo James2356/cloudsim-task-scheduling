@@ -29,6 +29,8 @@ public class GenerateMatrices {
     //基于已有虚拟机列表的各矩阵初始化
     public GenerateMatrices(List<Vm> vmlist){
         this.vmlist = vmlist;
+
+
         commMatrix = new double[Constants.NO_OF_TASKS][Constants.NO_OF_VMS];
         execMatrix = new double[Constants.NO_OF_TASKS][Constants.NO_OF_VMS];
         try {

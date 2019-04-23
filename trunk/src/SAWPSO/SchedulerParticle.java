@@ -35,9 +35,6 @@ public class SchedulerParticle extends Particle {
             if (tasks.isEmpty()) output += "There is no tasks associated to VM " + i + "\n";
             else
                 output += "There are " + no_of_tasks + " tasks associated to VM " + i + " and they are " + tasks + "\n";
-//            if (tasks.isEmpty()) output += "There is no tasks associated to Data Center " + i + "\n";
-//            else
-//                output += "There are " + no_of_tasks + " tasks associated to Data Center " + i + " and they are " + tasks + "\n";
         }
         return output;
     }
