@@ -288,10 +288,9 @@ public abstract class Particle {
 	}
 
 	/**
-	 * 启动变异策略
-	 * @param fitness
+	 * 启动变异策略 需要加入变异策略时重写该方法
 	 */
-	public void InitMutation(double fitness)
+	public void InitMutation()
 	{
 		//do nothing
 	}

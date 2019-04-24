@@ -24,14 +24,13 @@ public class SchedulerParticleUpdate extends ParticleUpdate {
             x[i] = (int) (x[i] + v[i]);
         }
 
-        double fit = particle.getFitness();
         if(SAWPSO_Scheduler.class.getName()=="SAWPSO.SAWPSO_Scheduler")
         {
-            particle.InitMutation(fit);
+            particle.InitMutation();
         }
         if(SAWPSO_SchedulerTestOne.class.getName()=="SAWPSO.SAWPSO_SchedulerTestOne")
         {
-            particle.InitMutation(fit);
+            particle.InitMutation();
         }
     }
 

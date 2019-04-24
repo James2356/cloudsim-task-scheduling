@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc79a43e-7415-4917-8d48-e3118e563088" name="Default Changelist" comment="">
+    <list default="true" id="cc79a43e-7415-4917-8d48-e3118e563088" name="Default Changelist" comment="修改代码结构">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/PSO/SchedulerParticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/PSO/SchedulerParticle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SAWPSO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SAWPSO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SchedulerParticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SchedulerParticle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SchedulerParticleUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/SAWPSO/SchedulerParticleUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/FitnessFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/FitnessFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/Particle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/Particle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/Swarm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/net/sourceforge/jswarm_pso/Swarm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trunk/utils/GenerateMatrices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trunk/utils/GenerateMatrices.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/FitnessFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/FitnessFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java" beforeDir="false" afterPath="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -84,7 +91,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="11" />
-          <entry key="java" value="145" />
+          <entry key="java" value="157" />
           <entry key="md" value="2" />
           <entry key="txt" value="6" />
           <entry key="xml" value="1" />
@@ -93,7 +100,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="11" />
-          <entry key="JAVA" value="145" />
+          <entry key="JAVA" value="157" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="1" />
@@ -102,14 +109,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="5" />
-          <entry key="java" value="4970" />
-          <entry key="txt" value="66" />
+          <entry key="java" value="5161" />
+          <entry key="txt" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4970" />
-          <entry key="PLAIN_TEXT" value="71" />
+          <entry key="JAVA" value="5161" />
+          <entry key="PLAIN_TEXT" value="113" />
         </counts>
       </usages-collector>
     </session>
@@ -117,31 +124,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SAWPSO_Scheduler.java">
+        <entry file="file://$PROJECT_DIR$/trunk/src/PSO/SchedulerParticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1085">
-              <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerFitnessFunction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="461">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -149,56 +135,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            <state relative-caret-position="285">
+              <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SAWPSO.java">
+        <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+            <state relative-caret-position="328">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Swarm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="454" column="33" selection-start-line="454" selection-start-column="27" selection-end-line="454" selection-end-column="33" />
-              <folding>
-                <element signature="e#10432#10433#0" expanded="true" />
-                <element signature="e#10475#10476#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/ParticleUpdate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="31" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/FitnessFunction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-              <folding>
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#768#769#0" expanded="true" />
-                <element signature="e#1922#1923#0" expanded="true" />
-                <element signature="e#1944#1945#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -207,28 +156,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="299" column="20" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="20" />
+            <state relative-caret-position="423">
+              <caret line="292" column="16" selection-start-line="292" selection-start-column="16" selection-end-line="292" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#5275#5276#0" expanded="true" />
-                <element signature="e#5296#5297#0" expanded="true" />
-                <element signature="e#9375#9376#0" expanded="true" />
-                <element signature="e#9406#9407#0" expanded="true" />
-                <element signature="e#9453#9454#0" expanded="true" />
-                <element signature="e#9484#9485#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trunk/src/PSO/SchedulerParticle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -278,12 +210,19 @@
         <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/VariablesUpdate.java" />
         <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Swarm.java" />
         <option value="$PROJECT_DIR$/trunk/src/SAWPSO/SAWPSO.java" />
-        <option value="$PROJECT_DIR$/trunk/src/PSO/SchedulerParticle.java" />
         <option value="$PROJECT_DIR$/trunk/src/utils/GenerateMatrices.java" />
         <option value="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerFitnessFunction.java" />
-        <option value="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java" />
         <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/FitnessFunction.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/example_2/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/sphere/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/schaffer/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/example_1/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/alpine/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/rosenbrock/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/rosenbrock_30/MyParticle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/PSO/SchedulerParticle.java" />
         <option value="$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java" />
+        <option value="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java" />
         <option value="$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticle.java" />
       </list>
     </option>
@@ -321,37 +260,13 @@
               <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
               <item name="trunk" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ACO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="PSO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
               <item name="trunk" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="RoundRobin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="SAWPSO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="SJF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cloudsim-task-scheduling" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trunk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -365,7 +280,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556096394074" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556097244226" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -491,7 +406,7 @@
       <workItem from="1555834273261" duration="4815000" />
       <workItem from="1555948545901" duration="4605000" />
       <workItem from="1555998034896" duration="7148000" />
-      <workItem from="1556094975883" duration="1284000" />
+      <workItem from="1556094975883" duration="2223000" />
     </task>
     <task id="LOCAL-00001" summary="混沌变异策略加入">
       <created>1555350307032</created>
@@ -521,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556035694152</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改代码结构">
+      <created>1556096475635</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556096475635</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101216000" />
+    <option name="totallyTimeSpent" value="102155000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -637,58 +559,10 @@
     <MESSAGE value="混沌策略实现，优化结构" />
     <MESSAGE value="修正两处逻辑" />
     <MESSAGE value="提取下计算权重的方法&#10;添加注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="提取下计算权重的方法&#10;添加注释" />
+    <MESSAGE value="修改代码结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改代码结构" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trunk/src/ACO/ACO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="76" column="41" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="133">
-            <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="390" column="21" selection-start-line="390" selection-start-column="16" selection-end-line="390" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1287">
-          <caret line="554" column="19" selection-start-line="554" selection-start-column="19" selection-end-line="554" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/trunk/jars/cloudsim-3.0.3.jar!/org/cloudbus/cloudsim/core/CloudSim.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExecutionTimeMatrix.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -856,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/rosenbrock/MyParticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SAWPSODatacenterBroker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -932,10 +799,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerFitnessFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SAWPSO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="76">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -944,26 +818,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Swarm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="454" column="33" selection-start-line="454" selection-start-column="27" selection-end-line="454" selection-end-column="33" />
+        <state relative-caret-position="95">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#10432#10433#0" expanded="true" />
             <element signature="e#10475#10476#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/ParticleUpdate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerFitnessFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -980,31 +841,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/ParticleUpdate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        <state relative-caret-position="342">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/PSO/SchedulerParticleUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java">
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/example_2/MyParticle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="299" column="20" selection-start-line="299" selection-start-column="20" selection-end-line="299" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1017#1018#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#5275#5276#0" expanded="true" />
-            <element signature="e#5296#5297#0" expanded="true" />
-            <element signature="e#9375#9376#0" expanded="true" />
-            <element signature="e#9406#9407#0" expanded="true" />
-            <element signature="e#9453#9454#0" expanded="true" />
-            <element signature="e#9484#9485#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="433">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/rosenbrock/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/rosenbrock_30/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/sphere/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/schaffer/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/example_1/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/alpine/MyParticle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1015,10 +915,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticleUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trunk/src/net/sourceforge/jswarm_pso/Particle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="292" column="16" selection-start-line="292" selection-start-column="16" selection-end-line="292" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trunk/src/SAWPSO/SchedulerParticle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+        <state relative-caret-position="285">
+          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
         </state>
       </provider>
     </entry>

@@ -49,13 +49,12 @@ public class SchedulerParticle extends Particle {
 
     /**
      * 启动混沌的变异策略
-     * @param fitness
      */
     @Override
-    public void InitMutation(double fitness)
+    public void InitMutation()
     {
         //变异策略部分。
-        double temp = fitness-this.getBestFitness();
+        double temp = this.getFitness()-this.getBestFitness();
         if(Math.abs(temp)<0.005)
         {
             count++;
