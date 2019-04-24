@@ -1,12 +1,19 @@
 package SAWPSO;
 
 import net.sourceforge.jswarm_pso.Particle;
+import utils.ChaosStrategy;
 import utils.Constants;
 
 import java.util.Random;
 
 public class SchedulerParticle extends Particle {
-    SchedulerParticle() {
+
+
+    /** 粒子活跃判断计数*/
+    int count;
+
+
+    public SchedulerParticle() {
         super(Constants.NO_OF_TASKS);
         double[] position = new double[Constants.NO_OF_TASKS];
         double[] velocity = new double[Constants.NO_OF_TASKS];
@@ -18,6 +25,7 @@ public class SchedulerParticle extends Particle {
         }
         setPosition(position);
         setVelocity(velocity);
+        count=0;
     }
 
     @Override
@@ -37,5 +45,38 @@ public class SchedulerParticle extends Particle {
                 output += "There are " + no_of_tasks + " tasks associated to VM " + i + " and they are " + tasks + "\n";
         }
         return output;
+    }
+
+    /**
+     * 启动混沌的变异策略
+     * @param fitness
+     */
+    @Override
+    public void InitMutation(double fitness)
+    {
+        //变异策略部分。
+        double temp = fitness-this.getBestFitness();
+        if(Math.abs(temp)<0.005)
+        {
+            count++;
+            if(count>=10)//粒子连续10次判断都不活跃 进入变异环节
+            {
+                count=0;
+                //启动变异策略
+                System.out.println("go particle mutation!");
+                ChaosStrategy instance = ChaosStrategy.getInstance();
+                instance.CalChaos();
+
+                double[] new_vel = new double[Constants.NO_OF_TASKS];
+                double[] new_pos = new double[Constants.NO_OF_TASKS];
+                for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
+                    //混沌映射方式生成变异粒子的速度和位置
+                    new_pos[i] = instance.PLM(1,instance.getChaosValue())*Constants.NO_OF_VMS;
+                    new_vel[i] = instance.LM(1,instance.getChaosValue());
+                }
+                setPosition(new_pos);
+                setVelocity(new_vel);
+            }
+        }
     }
 }

@@ -1,12 +1,8 @@
 package net.sourceforge.jswarm_pso;
 
-import utils.Calculator;
-import utils.ChaosStrategy;
-import utils.Constants;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Random;
 
 /**
  * Basic (abstract) particle
@@ -24,8 +20,7 @@ public abstract class Particle {
 	double position[];
 	/** Velocity */
 	double velocity[];
-	/** 粒子活跃判断计数*/
-	int count;
+
 	//-------------------------------------------------------------------------
 	// Constructors
 	//-------------------------------------------------------------------------
@@ -43,7 +38,6 @@ public abstract class Particle {
 	 */
 	public Particle(int dimention) {
 		allocate(dimention);
-		count=0;
 	}
 
 	/**
@@ -53,7 +47,6 @@ public abstract class Particle {
 	public Particle(Particle sampleParticle) {
 		int dimention = sampleParticle.getDimention();
 		allocate(dimention);
-		count=0;
 	}
 
 	//-------------------------------------------------------------------------
@@ -260,38 +253,6 @@ public abstract class Particle {
 		}
 	}
 
-	/**
-	 * 启动混沌的变异策略
-	 * @param fitness
-	 */
-	public void InitMutation(double fitness)
-	{
-		//变异策略部分。
-		double temp = fitness-bestFitness;
-		if(Math.abs(temp)<0.005)
-		{
-			count++;
-			if(count>=10)//粒子连续10次判断都不活跃 进入变异环节
-			{
-				count=0;
-				//启动变异策略
-				System.out.println("go particle mutation!");
-				ChaosStrategy instance = ChaosStrategy.getInstance();
-				instance.CalChaos();
-
-				double[] new_vel = new double[Constants.NO_OF_TASKS];
-				double[] new_pos = new double[Constants.NO_OF_TASKS];
-				for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
-					//混沌映射方式生成变异粒子的速度和位置
-					new_pos[i] = instance.PLM(1,instance.getChaosValue())*Constants.NO_OF_VMS;
-					new_vel[i] = instance.LM(1,instance.getChaosValue());
-				}
-				setPosition(new_pos);
-				setVelocity(new_vel);
-			}
-		}
-	}
-
 	public void setPosition(double[] position) {
 		this.position = position;
 	}
@@ -324,5 +285,14 @@ public abstract class Particle {
 
 		str += "\n";
 		return str;
+	}
+
+	/**
+	 * 启动变异策略
+	 * @param fitness
+	 */
+	public void InitMutation(double fitness)
+	{
+		//do nothing
 	}
 }

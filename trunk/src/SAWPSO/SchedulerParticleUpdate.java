@@ -23,5 +23,17 @@ public class SchedulerParticleUpdate extends ParticleUpdate {
             v[i] = W * v[i] + C * Math.random() * (pbest[i] - x[i]) + C * Math.random() * (gbest[i] - x[i]);
             x[i] = (int) (x[i] + v[i]);
         }
+
+        double fit = particle.getFitness();
+        if(SAWPSO_Scheduler.class.getName()=="SAWPSO.SAWPSO_Scheduler")
+        {
+            particle.InitMutation(fit);
+        }
+        if(SAWPSO_SchedulerTestOne.class.getName()=="SAWPSO.SAWPSO_SchedulerTestOne")
+        {
+            particle.InitMutation(fit);
+        }
     }
+
+
 }
