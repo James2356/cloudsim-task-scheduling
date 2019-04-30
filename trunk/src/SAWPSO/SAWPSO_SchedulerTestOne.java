@@ -72,13 +72,8 @@ public class SAWPSO_SchedulerTestOne {
     }
 
     public static void main(String[] args) {
-        Log.printLine("Starting PSO Scheduler...");
+        Log.printLine("Starting C-M-SOWPSO Scheduler...");
 
-//        new GenerateMatrices();
-//        commMatrix = GenerateMatrices.getCommMatrix();
-//        execMatrix = GenerateMatrices.getExecMatrix();
-//        SAWPSOSchedularInstance = new SAWPSO();
-//        mapping = SAWPSOSchedularInstance.run();
 
         try {
             int num_user = 1;   // number of grid users
@@ -88,10 +83,6 @@ public class SAWPSO_SchedulerTestOne {
             CloudSim.init(num_user, calendar, trace_flag);
 
             // Second step: Create Datacenters
-//            datacenter = new Datacenter[Constants.NO_OF_DATA_CENTERS];
-//            for (int i = 0; i < Constants.NO_OF_DATA_CENTERS; i++) {
-//                datacenter[i] = DatacenterCreator.createDatacenter("Datacenter_" + i);
-//            }
             datacenter = DatacenterCreator.createDatacenter("DataCenter_"+1,Constants.NO_OF_VMS);
 
             //Third step: Create Broker
@@ -101,7 +92,6 @@ public class SAWPSO_SchedulerTestOne {
             //Fourth step: Create VMs and Cloudlets and send them to broker
             vmList = createVM(brokerId, Constants.NO_OF_VMS);
 //            cloudletList = createCloudlet(brokerId, Constants.NO_OF_TASKS, 0);
-//            createTasks(brokerId,filePath,Constants.NO_OF_TASKS);
 
             GenerateMatrices GM = new GenerateMatrices(vmList);
             commMatrix = GM.getcommMatrix();
@@ -148,46 +138,6 @@ public class SAWPSO_SchedulerTestOne {
 
     private static SAWPSODatacenterBroker createBroker(String name) throws Exception {
         return new SAWPSODatacenterBroker(name);
-    }
-
-    /**
-     * Prints the Cloudlet objects
-     *
-     * @param list list of Cloudlets
-     */
-    private static void printCloudletList(List<Cloudlet> list) {
-        int size = list.size();
-        Cloudlet cloudlet;
-
-        String indent = "    ";
-        Log.printLine();
-        Log.printLine("========== OUTPUT ==========");
-        Log.printLine("Cloudlet ID" + indent + "STATUS" +
-                indent + "Data center ID" +
-                indent + "VM ID" +
-                indent + indent + "Time" +
-                indent + "Start Time" +
-                indent + "Finish Time");
-
-        double mxFinishTime = 0;
-        DecimalFormat dft = new DecimalFormat("###.##");
-        dft.setMinimumIntegerDigits(2);
-        for (int i = 0; i < size; i++) {
-            cloudlet = list.get(i);
-            Log.print(indent + dft.format(cloudlet.getCloudletId()) + indent + indent);
-
-            if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS) {
-                Log.print("SUCCESS");
-                Log.printLine(indent + indent + dft.format(cloudlet.getResourceId()) +
-                        indent + indent + indent + dft.format(cloudlet.getVmId()) +
-                        indent + indent + dft.format(cloudlet.getActualCPUTime()) +
-                        indent + indent + dft.format(cloudlet.getExecStartTime()) +
-                        indent + indent + indent + dft.format(cloudlet.getFinishTime()));
-            }
-            mxFinishTime = Math.max(mxFinishTime, cloudlet.getFinishTime());
-        }
-        Log.printLine(mxFinishTime);
-        SAWPSOSchedularInstance.printBestFitness();
     }
 
     private static double PrintResults(List<Cloudlet> list)
