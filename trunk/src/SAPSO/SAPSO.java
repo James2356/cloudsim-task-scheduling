@@ -31,7 +31,7 @@ public class SAPSO {
 //            swarm.setInertia(w);
         }
         System.out.println("\nThe best fitness value: " + swarm.getBestFitness() + "\nBest makespan: " + ff.calcMakespan(swarm.getBestParticle().getBestPosition()));
-
+        System.out.println("The best totalcost:"+ff.calcTotalTime(swarm.getBestParticle().getPosition()));
         System.out.println("The best solution is: ");
         SchedulerParticle bestParticle = (SchedulerParticle) swarm.getBestParticle();
         System.out.println(bestParticle.toString());

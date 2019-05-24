@@ -5,6 +5,7 @@ import org.cloudbus.cloudsim.lists.VmList;
 
 import java.io.*;
 import java.util.List;
+import java.util.Random;
 
 public class GenerateMatrices {
     private static double[][] commMatrix, execMatrix;//传输转移消耗矩阵，执行时间矩阵
@@ -139,11 +140,11 @@ public class GenerateMatrices {
         System.out.println("Initializing new Matrices...");
         BufferedWriter commBufferedWriter = new BufferedWriter(new FileWriter(commFile));
         BufferedWriter execBufferedWriter = new BufferedWriter(new FileWriter(execFile));
-
+        Random rm = new Random();
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
             for (int j = 0; j < Constants.NO_OF_VMS; j++) {
                 commMatrix[i][j] = Calculator.div(VmList.getById(vmlist,j).getSize(),VmList.getById(vmlist, j).getBw());
-                execMatrix[i][j] = Calculator.div(LengthGroup[i*Constants.NO_OF_VMS+j],VmList.getById(vmlist, j).getMips());
+                execMatrix[i][j] = Calculator.div(LengthGroup[rm.nextInt(Constants.NO_OF_TASKS)],VmList.getById(vmlist, j).getMips());
 //                execMatrix[i][j] = Calculator.div(LengthGroup[i],VmList.getById(vmlist, j).getHost().getTotalAllocatedMipsForVm(VmList.getById(vmlist, j)));
                 commBufferedWriter.write(String.valueOf(commMatrix[i][j]) + ' ');
                 execBufferedWriter.write(String.valueOf(execMatrix[i][j]) + ' ');

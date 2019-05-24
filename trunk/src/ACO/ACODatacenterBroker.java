@@ -5,6 +5,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.lists.VmList;
+import utils.Constants;
 
 import java.util.List;
 
@@ -30,9 +31,13 @@ public class ACODatacenterBroker extends DatacenterBroker {
         aco.init(antcount, cloudletList, vmList);
         aco.run(maxgen);
         aco.ReportResult();
+        double[] bestposition = new double[Constants.NO_OF_TASKS];
         for (int i = 0; i < cloudletList.size(); i++) {
             cloudletList.get(aco.bestTour[i].task).setVmId(aco.bestTour[i].vm);
+            bestposition[i] = aco.bestTour[i].vm;
         }
+        ACOFitnessFunction ff = new ACOFitnessFunction();
+        System.out.println("best totalcost:"+ff.calcTotalTime(bestposition));
     }
 
 }

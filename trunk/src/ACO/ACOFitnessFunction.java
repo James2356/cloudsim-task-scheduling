@@ -1,28 +1,24 @@
-package SAWPSO;
+package ACO;
 
-import net.sourceforge.jswarm_pso.FitnessFunction;
-import sun.misc.VM;
 import utils.Constants;
 import utils.GenerateMatrices;
 
-public class SchedulerFitnessFunction extends FitnessFunction {
+public class ACOFitnessFunction {
+
     private static double[][] execMatrix, commMatrix;
 
-    SchedulerFitnessFunction() {
-        super(false);
+    public ACOFitnessFunction()
+    {
         commMatrix = GenerateMatrices.getCommMatrix();
         execMatrix = GenerateMatrices.getExecMatrix();
     }
 
-    @Override
     public double evaluate(double[] position) {
         double alpha = 0.3;
         return alpha * calcTotalTime(position) + (1 - alpha) * calcMakespan(position);
 //        return calcMakespan(position);
-//        return calcTotalTime(position);
     }
 
-    //任务完成成本
     public double calcTotalTime(double[] position) {
         double totalCost = 0;
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
@@ -31,7 +27,7 @@ public class SchedulerFitnessFunction extends FitnessFunction {
         }
         return totalCost;
     }
-    //最大完成时间
+
     public double calcMakespan(double[] position) {
         double makespan = 0;
         double[] dcWorkingTime = new double[Constants.NO_OF_VMS];
@@ -43,17 +39,5 @@ public class SchedulerFitnessFunction extends FitnessFunction {
             makespan = Math.max(makespan, dcWorkingTime[dcId]);
         }
         return makespan;
-    }
-
-    public  double calcEC(double[] position)
-    {
-        double Consumption = 0.0;
-        for(int i =0;i<Constants.NO_OF_TASKS;i++)
-        {
-            int dcId = (int) position[i];
-            Consumption = execMatrix[i][dcId];
-
-        }
-        return Consumption;
     }
 }

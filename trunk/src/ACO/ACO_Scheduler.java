@@ -54,7 +54,9 @@ public class ACO_Scheduler
             vmList = createVM(brokerId, Constants.NO_OF_VMS);
 //            cloudletList = createCloudlet(brokerId, Constants.NO_OF_TASKS, 0);
             createTasks(brokerId,filePath,Constants.NO_OF_TASKS);
-
+            GenerateMatrices GM = new GenerateMatrices(vmList);
+            commMatrix = GM.getcommMatrix();
+            execMatrix = GM.getexecMatrix();
             broker.submitVmList(vmList);
 //            broker.setMapping(mapping);
             broker.submitCloudletList(cloudletList);

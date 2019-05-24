@@ -57,7 +57,7 @@ public class ACO {
         for(int i=0; i<antcount; i++){  
             ants.add(new Ant());  
             ants.get(i).RandomSelectVM(cloudletList, vmList);
-        }  			
+        }
 	}
 	/**
 	 * ACO的运行过程
@@ -129,5 +129,7 @@ public class ACO {
         {
         	System.out.println(bestTour[j].task+"分配给："+bestTour[j].vm);
         }
+
+        System.out.println("Best Totalcost:");
     }  	
 }

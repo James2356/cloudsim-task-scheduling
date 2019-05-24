@@ -21,7 +21,7 @@ public class SchedulerFitnessFunction extends FitnessFunction {
 //        return calcMakespan(position);
     }
 
-    private double calcTotalTime(double[] position) {
+    public double calcTotalTime(double[] position) {
         double totalCost = 0;
         for (int i = 0; i < Constants.NO_OF_TASKS; i++) {
             int dcId = (int) position[i];

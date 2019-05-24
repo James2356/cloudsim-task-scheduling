@@ -39,7 +39,6 @@ public class SAWPSO_Scheduler {
 
         //create VMs
         Vm[] vm = new Vm[vms];
-
         for (int i = 0; i < vms; i++) {
             vm[i] = new Vm(i, userId, mips, pesNumber, ram, bw, size, vmm, new CloudletSchedulerSpaceShared());
             list.add(vm[i]);

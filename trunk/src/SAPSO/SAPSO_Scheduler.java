@@ -31,7 +31,7 @@ public class SAPSO_Scheduler {
         //VM Parameters
         long size = 10000; //image size (MB)
         int ram = 512; //vm memory (MB)
-        int mips = 1000;
+        int mips = 800;
         long bw = 1000;
         int pesNumber = 1; //number of cpus
         String vmm = "Xen"; //VMM name
